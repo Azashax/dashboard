@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+	<title>Document</title>
+</head>
+<body>
+	<div class="container">
+		<div class="row p-2 col-6">
+			<div class="col-12 p-2 d-flex flex-column">
+				<div class="d-flex justify-content-center align-items-center">
+					<span class="badge badge-danger btn-block">You sure delete course <h3>{{ item }}</h3></span>
+				</div>
+				<div class="d-flex justify-content-around mt-3">
+					<a href="/"><button class="btn btn-primary">Cencel</button></a>
+				
+					<form action="{% url 'delete_page' item.id %}" method="POST">
+						{% csrf_token %}
+						<button type="submit" class="btn btn-danger">Delete</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>			
+</body>
+</html>
